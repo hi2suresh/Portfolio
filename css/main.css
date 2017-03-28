@@ -45,10 +45,35 @@ a {
  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  border-bottom: 1px solid yellow;
 }
 
 #about span {    
     float: left;
+    text-align: left;
+}
+
+.note{
+font-family: cursive;
+font-style: italic;
+ overflow: hidden; /* Ensures the content is not revealed until the animation */
+white-space: nowrap;
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  -webkit-animation:  typing 8s steps(50, end)
+/*    blink-caret .1s step-end;*/
+}
+
+/* The typing effect */
+@keyframes typing {
+ 0%{width: 0;}
+  100%{ width: 100%; } 
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
 }
 
 @media (min-width:320px) {
@@ -78,6 +103,7 @@ a {
     
     #about span {    
         padding-left: 10px;
+        padding-bottom: 10px;
     }
 }
 
