@@ -84,14 +84,27 @@
                 imgSource = imgSource.replace('_tn.jpg','.png');
                 overlay.style.display = 'block';
                 lightbox.style.display = 'block';
+                var projectDiv = document.createElement('div');
+                projectDiv.className = 'project-div';
+             
                 var projectImageDiv = document.createElement('div');
                 projectImageDiv.className = 'project-image';
 
                 var projectImage = document.createElement('img');
                 projectImage.setAttribute('src', imgSource);
                 projectImageDiv.appendChild(projectImage);
-
-                lightbox.appendChild(projectImageDiv);
+                projectDiv.appendChild(projectImageDiv);
+             
+                var projectContentDiv = document.createElement('div');
+                projectImageDiv.classList.add('project-image');
+                projectImageDiv.classList.add('back');
+             
+                var p = document.createElement('p');
+                p.innerHTML = 'Suresh is cool';
+                projectContentDiv.appendChild(p);
+                projectDiv.appendChild(projectContentDiv);
+                
+                lightbox.appendChild(projectDiv);
              }           
             
         });

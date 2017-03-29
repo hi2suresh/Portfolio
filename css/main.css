@@ -98,8 +98,29 @@ white-space: nowrap;
     background-color: white;
     z-index:1002;
     overflow: auto;
-
 }
+
+.project-div {
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: all 1s ease-in-out;
+  width: 100%;
+}
+.project-div:hover {
+  transform: rotateY(180deg);
+}
+.project-div .project-image {
+  backface-visibility: hidden;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+.project-div .back {
+  transform: rotateY(180deg);
+}
+
+
 @media (min-width:320px) {
     #container {
     width: 95%;
