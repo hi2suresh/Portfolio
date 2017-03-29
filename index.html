@@ -40,18 +40,62 @@
            <p class="note"> Note: This portfolio is created with plain html, css and Vanilla Javascript (no third party libraries are used).</p>
         <div id='gallery'>
         <ul>
-            <li>
+            <li id="dashboard">
                 <a href="img/dashboard-min.png" Title="Dashboard Project">
                 <span>Title: Dashboard Project</span>
-                <img src="img/accessibility-min_tn.jpg" alt="Dashboard Project">
+                <img src="img/dashboard-min_tn.jpg" alt="Dashboard Project">
                 </a>
             </li>
+            
+             <li id="performance">
+                <a href="img/performance-min.png" Title="Optimisation Project">
+                <span>Title: Dashboard Project</span>
+                <img src="img/performance-min_tn.jpg" alt="Optimisation Project">
+                </a>
+            </li>
+            
+             <li id="video">
+                <a href="img/video-player-min.png" Title="Interactive Video Player">
+                <span>Title: Dashboard Project</span>
+                <img src="img/video-player-min_tn.jpg" alt="Interactive Video Player">
+                </a>
+            </li>
+            
         </ul>
         
         
         </div>
+        
+        <div id="fade" class="black-overlay"></div>
+        <div id="lightbox" class="lightbox-content"></div>
     </div>
     <script src="https://cdn.jsdelivr.net/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+        var gallery = document.querySelector('#gallery');
+        var overlay = document.querySelector('#fade');
+        var lightbox = document.querySelector('#lightbox');
+       
+        gallery.addEventListener('click', function(e){
+            e.preventDefault();
+            console.log('Image clicked' + e.target.nodeName) ;
+         if(e.target && e.target.nodeName == "IMG"){
+               console.log('Image clicked') ;
+                var imgSource = e.target.getAttribute('src');
+                imgSource = imgSource.replace('_tn.jpg','.png');
+                overlay.style.display = 'block';
+                lightbox.style.display = 'block';
+                var projectImageDiv = document.createElement('div');
+                projectImageDiv.className = 'project-image';
+
+                var projectImage = document.createElement('img');
+                projectImage.setAttribute('src', imgSource);
+                projectImageDiv.appendChild(projectImage);
+
+                lightbox.appendChild(projectImageDiv);
+             }           
+            
+        });
+    </script>
 <!--    <script src="js/main.js"></script> -->
 
 </body>
