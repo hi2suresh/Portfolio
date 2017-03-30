@@ -104,14 +104,24 @@ white-space: nowrap;
   height: 100%;
   position: absolute;
   transform-style: preserve-3d;
+  -webkit-transform-style:preserve-3d;
+-moz-transform-style:preserve-3d;
+-ms-transform-style:preserve-3d;
   transition: all 1s ease-in-out;
+  -webkit-transition:all 1s ease-in-out;
+  -moz-transition:all 1s ease-in-out;
   width: 100%;
 }
 .project-div:hover {
   transform: rotateY(180deg);
+-webkit-transform:rotateY(180deg);
+-moz-transform:rotateY(180deg);
+-ms-transform:rotateY(180deg);
+
 }
 .project-div .project-image {
   backface-visibility: hidden;
+  -webkit-backface-visibility
   height: 100%;
   position: absolute;
   width: 100%;
@@ -120,6 +130,112 @@ white-space: nowrap;
   transform: rotateY(180deg);
 }
 
+.project-heading{
+    color: blueviolet;
+}
+
+#close {
+    position: fixed;
+    top: 40px;
+    right: 30px;
+    color: crimson;
+    font-size: 1.5em;
+}
+
+/*---------------------------------------
+ Animations while showing Project Details
+-----------------------------------------*/
+.project-details-div > div{ 
+      animation-name: hide, slideIn;
+      animation-duration: 12s;
+      animation-timing-function: ease-in;
+      animation-iteration-count: 1; 
+      -moz-animation-name: hide, slideIn;
+      -moz-animation-duration: 12s;
+      -moz-animation-timing-function: ease-in;
+      -moz-animation-iteration-count: 1; 
+      -webkit-animation-name: hide, slideIn;
+      -webkit-animation-duration: 12s;
+      -webkit-animation-timing-function: ease-in;
+      -webkit-animation-iteration-count: 1; 
+      -o-animation-name: hide, slideIn;
+      -o-animation-duration: 12s;
+      -o-animation-timing-function: ease-in;
+      -o-animation-iteration-count: 1; 
+      opacity: 1;
+  } 
+
+
+ .project-about-div {
+      animation-delay: 0s, 1s;
+      -moz-animation-delay: 0s, 1s;
+      -webkit-animation-delay: 0s, 1s;
+      -o-animation-delay: 0s, 1s;
+  }
+
+ .project-features-div {     
+      animation-delay: 0s, 3s;
+      -moz-animation-delay: 0s, 3s;
+      -webkit-animation-delay: 0s, 3s;
+      -o-animation-delay: 0s, 3s;
+  }
+
+  .project-skills-div{     
+      animation-delay: 0s, 4s;
+      -moz-animation-delay: 0s, 4s;
+      -webkit-animation-delay: 0s, 4s;
+      -o-animation-delay: 0s, 4s;
+  }
+
+.project-url-div{
+      animation-delay: 0s, 11s;
+      -moz-animation-delay: 0s,11s;
+      -webkit-animation-delay: 0s, 11s;
+      -o-animation-delay: 0s, 11s;
+}
+
+
+  @keyframes hide
+  { 
+      from { opacity: 0; } to { opacity: 0 }
+  }
+  @-moz-keyframes hide
+  { 
+      from { opacity: 0; } to { opacity: 0 }
+  }
+
+   @-webkit-keyframes hide
+  { 
+      from { opacity: 0; } to { opacity: 0 }
+  }
+  @-o-keyframes hide
+  { 
+      from { opacity: 0; } to { opacity: 0 }
+  }
+  @keyframes slideIn
+  { 
+        0% { opacity: 0;}
+        5% { opacity: 1; }
+      100% { opacity: 1; } 
+  } 
+  @-moz-keyframes slideIn
+  { 
+        0% { opacity: 0;}
+        5% { opacity: 1; }
+      100% { opacity: 1; } 
+  } 
+  @-webkit-keyframes slideIn
+  { 
+       0% { opacity: 0;}
+        5% { opacity: 1; }
+      100% { opacity: 1; } 
+  } 
+  @-o-keyframes slideIn
+  { 
+      0% { opacity: 0;}
+      5% { opacity: 1; }
+      100% { opacity: 1; } 
+  } 
 
 @media (min-width:320px) {
     #container {

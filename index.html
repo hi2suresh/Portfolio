@@ -67,47 +67,163 @@
         </div>
         
         <div id="fade" class="black-overlay"></div>
-        <div id="lightbox" class="lightbox-content"></div>
+        <div id="lightbox" class="lightbox-content">
+            <a href="#" id='close'>X</span>
+
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/jquery/2.2.4/jquery.min.js"></script>
     <script>
         var gallery = document.querySelector('#gallery');
         var overlay = document.querySelector('#fade');
         var lightbox = document.querySelector('#lightbox');
+        var close = document.querySelector('#close');
        
         gallery.addEventListener('click', function(e){
             e.preventDefault();
-            console.log('Image clicked' + e.target.nodeName) ;
          if(e.target && e.target.nodeName == "IMG"){
-               console.log('Image clicked') ;
+                toggleLightBox();
                 var imgSource = e.target.getAttribute('src');
                 imgSource = imgSource.replace('_tn.jpg','.png');
-                overlay.style.display = 'block';
-                lightbox.style.display = 'block';
-                var projectDiv = document.createElement('div');
-                projectDiv.className = 'project-div';
+                var projectDiv =  createDiv(['project-div']);
+                var projectImageDiv =  createDiv(['project-image']);
              
-                var projectImageDiv = document.createElement('div');
-                projectImageDiv.className = 'project-image';
-
-                var projectImage = document.createElement('img');
+                var projectImage = document.createElement('img');             
                 projectImage.setAttribute('src', imgSource);
                 projectImageDiv.appendChild(projectImage);
                 projectDiv.appendChild(projectImageDiv);
              
-                var projectContentDiv = document.createElement('div');
-                projectImageDiv.classList.add('project-image');
-                projectImageDiv.classList.add('back');
-             
-                var p = document.createElement('p');
-                p.innerHTML = 'Suresh is cool';
-                projectContentDiv.appendChild(p);
-                projectDiv.appendChild(projectContentDiv);
+                var projectContentDiv = createDiv(['project-image','back']);
+                projectContentDiv.appendChild(createProjectContent('Dashboard'));               
+                projectDiv.appendChild(projectContentDiv);             
                 
                 lightbox.appendChild(projectDiv);
              }           
             
         });
+        
+        close.addEventListener('click', function(){
+            toggleLightBox();
+        });
+        
+        /*Shows or Hides the Lightbox*/
+        function toggleLightBox(){
+            if(overlay.style.display == 'block') {
+                overlay.style.display = 'none';
+              lightbox.style.display = 'none';
+            }
+             else {
+                  overlay.style.display = 'block';
+                lightbox.style.display = 'block';
+             }
+        }
+        
+        var objProjects = {
+          Dashboard: {
+          about: 'Design and build a responsive Web dashboard using html, CSS and JavaScript-driven charts and graphs',
+          features: ['Responsive web page from the supplied dashboard.png mockup ',
+                    'Demo alert notification using Jquery',
+                    'Chart widgets using Chart.js',
+                    'Social Stats Widgets using SVG',
+                    'New Members and Recent Activity Widgets',
+                    'Local storage to save the settings',
+                    'autocomplete feature for the user search box'],
+          skills:   "html, css, Javascript, Jquery, Javascript libraries: [Chart.js, autocomplete.js, toggle.js] and                local Storage",
+          url: 'https://hi2suresh.github.io/web-app-dashboard/'
+          }
+        };
+        
+        function createProjectContent(projectName){
+            var projectDetailsDiv = createDiv(['project-details-div']);
+            
+            var projectAboutDiv =  createDiv(['project-about-div']);
+            projectAboutDiv.appendChild(createHeading(projectName));
+            projectAboutDiv.appendChild(createParagraph(objProjects[projectName].about));
+            projectDetailsDiv.appendChild(projectAboutDiv);
+            
+            var projectFeaturesDiv =  createDiv(['project-features-div']);
+            projectFeaturesDiv.appendChild(createHeading('Project Features:'));
+            projectFeaturesDiv.appendChild(createFeatures(projectName));
+            projectDetailsDiv.appendChild(projectFeaturesDiv);
+            
+            var projectSkillsDiv =  createDiv(['project-skills-div']);
+            projectSkillsDiv.appendChild(createHeading('Tools & Technologies:'));
+            projectSkillsDiv.appendChild(createParagraph(objProjects[projectName].skills));
+            projectDetailsDiv.appendChild(projectSkillsDiv);
+            
+            var projectUrlDiv =  createDiv(['project-url-div']);
+            projectSkillsDiv.appendChild(createHeading('Project Live URL:'));
+            projectSkillsDiv.appendChild(createProjectUrl(objProjects[projectName].url));
+            projectDetailsDiv.appendChild(projectUrlDiv);
+            
+            
+            return projectDetailsDiv;
+        }
+        
+        /*Create a Div Element and add class*/
+        function createDiv(divClass){
+            var div = document.createElement('div');
+            for(var i=0; i<divClass.length; i++){
+                div.classList.add(divClass[i]);
+            }
+            return div;
+        }
+        
+         /* Create Project Heading */
+        function createAbout(name,content){
+            var h2 = document.createElement('h2');
+            h2.innerHTML = name +' Project:';
+            h2.className = 'project-heading';   
+            
+            var p =document.createElement('p');
+            p.className = 'project-about';
+            p.innerHTML = content;
+            h2.appendChild(p);
+            return h2;            
+        }
+        
+        /* Create Project Heading Element*/
+        function createHeading(heading){
+            var h2 = document.createElement('h2');
+            h2.innerHTML = heading;
+            h2.className = 'project-heading'; 
+            return h2;
+        }
+        
+        /* Create Project Heading Element*/
+        function createParagraph(content){
+            var p =document.createElement('p');
+            p.className = 'project-about';
+            p.innerHTML = content;
+            return p;
+        }
+        
+
+        
+        /* Create Project Features List */
+        function createFeatures(projectName){
+            var featuresList = objProjects[projectName].features;                  
+            var ul = document.createElement('ul');
+            ul.className = 'project-features-list';
+            
+            for(var i=0; i<featuresList.length; i++){
+                let li = document.createElement('li');
+                li. innerHTML = featuresList[i];
+                ul.appendChild(li);
+            }
+           
+            return ul;
+        }
+        
+        /* Create Project URL link */
+        function createProjectUrl(url){
+            var link = document.createElement('a');
+            link.setAttribute('href',url);
+            link.setAttribute('target','_blank'); //Open the url in new window
+            link.innerHTML = 'See the Project in Action';
+            return link;
+        }
+        
     </script>
 <!--    <script src="js/main.js"></script> -->
 
