@@ -68,6 +68,8 @@
         
         <div id="fade" class="black-overlay"></div>
         <div id="lightbox" class="lightbox-content">
+            <section class="lightbox-container">
+            </section>
             <a href="#" id='close'>X</span>
 
         </div>
@@ -77,27 +79,33 @@
         var gallery = document.querySelector('#gallery');
         var overlay = document.querySelector('#fade');
         var lightbox = document.querySelector('#lightbox');
+        var lightboxContainer = document.querySelector('.lightbox-container');
+        var flipbutton;
+
         var close = document.querySelector('#close');
        
         gallery.addEventListener('click', function(e){
             e.preventDefault();
+            flipbutton = document.querySelector('#flip');
          if(e.target && e.target.nodeName == "IMG"){
                 toggleLightBox();
                 var imgSource = e.target.getAttribute('src');
                 imgSource = imgSource.replace('_tn.jpg','.png');
-                var projectDiv =  createDiv(['project-div']);
-                var projectImageDiv =  createDiv(['project-image']);
-             
+                var projectDiv =  createDiv(['project-card']);
+                
+                //Create Project Details Information - Front side
+                var projectContentDiv = createDiv(['front']);
+                projectContentDiv.appendChild(createProjectContent('Dashboard'));               
+                projectDiv.appendChild(projectContentDiv);    
+                
+                //Create Project Snapshot - Back side
+                var projectImageDiv =  createDiv(['back']);             
                 var projectImage = document.createElement('img');             
                 projectImage.setAttribute('src', imgSource);
-                projectImageDiv.appendChild(projectImage);
-                projectDiv.appendChild(projectImageDiv);
-             
-                var projectContentDiv = createDiv(['project-image','back']);
-                projectContentDiv.appendChild(createProjectContent('Dashboard'));               
-                projectDiv.appendChild(projectContentDiv);             
+                projectImageDiv.appendChild(projectImage);             
+                projectDiv.appendChild(projectImageDiv);                             
                 
-                lightbox.appendChild(projectDiv);
+                lightboxContainer.appendChild(projectDiv);
              }           
             
         });
@@ -105,7 +113,8 @@
         close.addEventListener('click', function(){
             toggleLightBox();
         });
-        
+               
+       
         /*Shows or Hides the Lightbox*/
         function toggleLightBox(){
             if(overlay.style.display == 'block') {
@@ -152,10 +161,17 @@
             projectDetailsDiv.appendChild(projectSkillsDiv);
             
             var projectUrlDiv =  createDiv(['project-url-div']);
-            projectSkillsDiv.appendChild(createHeading('Project Live URL:'));
-            projectSkillsDiv.appendChild(createProjectUrl(objProjects[projectName].url));
+            projectUrlDiv.appendChild(createLinkButton('project-url', objProjects[projectName].url, "See in Action"));
             projectDetailsDiv.appendChild(projectUrlDiv);
             
+            var projectFlipDiv =  createDiv(['flip-div']);
+            var flipButton = createLinkButton('flip', '#', "Flip to See Project Snapshot");
+            flipButton.addEventListener('click', function(){
+                var projectCard = document.querySelector('.project-card');
+                projectCard.classList.add('.flipped');
+             });
+            projectFlipDiv.appendChild(flipButton);
+            projectDetailsDiv.appendChild(projectFlipDiv);
             
             return projectDetailsDiv;
         }
@@ -221,8 +237,34 @@
             link.setAttribute('href',url);
             link.setAttribute('target','_blank'); //Open the url in new window
             link.innerHTML = 'See the Project in Action';
+            for(var i=0; i<divClass.length; i++){
+                div.classList.add(divClass[i]);
+            }
             return link;
         }
+        
+         /* Create Project URL link */
+        function createLinkButton(idValue, url, text){
+            var link = document.createElement('a');
+            link.id = idValue;
+            link.classList.add('button');
+            link.setAttribute('href',url);
+          /*  if(text.contains('Action')){
+                 link.setAttribute('target','_blank'); //Open the url in new window
+            } */          
+            link.innerHTML = text;           
+            return link;
+        }
+        
+         /* Create Project URL link */
+        function createFlipButton(url){
+            var link = document.createElement('a');
+            link.setAttribute('href',url);
+            link.setAttribute('target','_blank'); //Open the url in new window
+            link.innerHTML = 'See the Project in Action';
+            return link;
+        }
+        
         
     </script>
 <!--    <script src="js/main.js"></script> -->
