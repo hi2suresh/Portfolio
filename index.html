@@ -99,7 +99,9 @@
                 projectDiv.appendChild(projectContentDiv);    
                 
                 //Create Project Snapshot - Back side
-                var projectImageDiv =  createDiv(['back']);             
+                var projectImageDiv =  createDiv(['back']); 
+                projectImageDiv.appendChild(createHeading('Dashboard Snapshot:'));
+                projectImageDiv.appendChild(createFlipButton());                
                 var projectImage = document.createElement('img');             
                 projectImage.setAttribute('src', imgSource);
                 projectImageDiv.appendChild(projectImage);             
@@ -163,15 +165,7 @@
             var projectUrlDiv =  createDiv(['project-url-div']);
             projectUrlDiv.appendChild(createLinkButton('project-url', objProjects[projectName].url, "See in Action"));
             projectDetailsDiv.appendChild(projectUrlDiv);
-            
-            var projectFlipDiv =  createDiv(['flip-div']);
-            var flipButton = createLinkButton('flip', '#', "Flip to See Project Snapshot");
-            flipButton.addEventListener('click', function(){
-                var projectCard = document.querySelector('.project-card');
-                projectCard.classList.add('.flipped');
-             });
-            projectFlipDiv.appendChild(flipButton);
-            projectDetailsDiv.appendChild(projectFlipDiv);
+            projectDetailsDiv.appendChild(createFlipButton());
             
             return projectDetailsDiv;
         }
@@ -256,13 +250,16 @@
             return link;
         }
         
-         /* Create Project URL link */
-        function createFlipButton(url){
-            var link = document.createElement('a');
-            link.setAttribute('href',url);
-            link.setAttribute('target','_blank'); //Open the url in new window
-            link.innerHTML = 'See the Project in Action';
-            return link;
+         /* Create Project Flip Card Button */
+        function createFlipButton(){
+            var projectFlipDiv =  createDiv(['flip-div']);
+            var flipButton = createLinkButton('flip', '#', "Flip to See Other Side");
+            flipButton.addEventListener('click', function(){
+                var projectCard = document.querySelector('.project-card');
+                projectCard.classList.toggle('flipped');
+             });
+            projectFlipDiv.appendChild(flipButton);
+            return projectFlipDiv;
         }
         
         

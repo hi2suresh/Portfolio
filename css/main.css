@@ -145,26 +145,13 @@ a.button {
 
     text-decoration: none;
     color: initial;
+    border: 1px solid black;
+    background: blueviolet;
+    display: inline-block;
+    width: 40%;
+    margin: auto;
 }
 
-
-/*.project-div:hover {
-  transform: rotateY(180deg);
--webkit-transform:rotateY(180deg);
--moz-transform:rotateY(180deg);
--ms-transform:rotateY(180deg);
-
-}
-.project-div .project-image {
-  backface-visibility: hidden;
-  -webkit-backface-visibility:hidden;
-  height: 100%;
-  position: absolute;
-  width: 100%;
-}
-.project-div .back {
-  transform: rotateY(180deg);
-}*/
 
 .project-heading{
     color: blueviolet;
@@ -183,19 +170,19 @@ a.button {
 -----------------------------------------*/
 .project-details-div > div{ 
       animation-name: hide, slideIn;
-      animation-duration: 12s;
+      animation-duration: 10s;
       animation-timing-function: ease-in;
       animation-iteration-count: 1; 
       -moz-animation-name: hide, slideIn;
-      -moz-animation-duration: 12s;
+      -moz-animation-duration: 10s;
       -moz-animation-timing-function: ease-in;
       -moz-animation-iteration-count: 1; 
       -webkit-animation-name: hide, slideIn;
-      -webkit-animation-duration: 12s;
+      -webkit-animation-duration: 10s;
       -webkit-animation-timing-function: ease-in;
       -webkit-animation-iteration-count: 1; 
       -o-animation-name: hide, slideIn;
-      -o-animation-duration: 12s;
+      -o-animation-duration: 10s;
       -o-animation-timing-function: ease-in;
       -o-animation-iteration-count: 1; 
       opacity: 1;
@@ -217,17 +204,24 @@ a.button {
   }
 
   .project-skills-div{     
-      animation-delay: 0s, 4s;
-      -moz-animation-delay: 0s, 4s;
-      -webkit-animation-delay: 0s, 4s;
-      -o-animation-delay: 0s, 4s;
+      animation-delay: 0s, 6s;
+      -moz-animation-delay: 0s, 6s;
+      -webkit-animation-delay: 0s, 6s;
+      -o-animation-delay: 0s, 6s;
   }
 
 .project-url-div{
-      animation-delay: 0s, 11s;
-      -moz-animation-delay: 0s,11s;
-      -webkit-animation-delay: 0s, 11s;
-      -o-animation-delay: 0s, 11s;
+      animation-delay: 0s, 8s;
+      -moz-animation-delay: 0s,8s;
+      -webkit-animation-delay: 0s,8s;
+      -o-animation-delay: 0s, 8s;
+}
+
+.flip-div{
+      animation-delay: 0s, 9s;
+      -moz-animation-delay: 0s,9s;
+      -webkit-animation-delay: 0s, 9s;
+      -o-animation-delay: 0s, 9s;
 }
 
 
