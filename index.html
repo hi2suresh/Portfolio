@@ -40,29 +40,63 @@
            <p class="note"> Note: This portfolio is created with plain html, css and Vanilla Javascript (no third party libraries are used).</p>
         <div id='gallery'>
         <ul>
-            <li id="dashboard">
+            <li >
                 <a href="img/dashboard-min.png" Title="Dashboard Project">
-                <span>Title: Dashboard Project</span>
-                <img src="img/dashboard-min_tn.jpg" alt="Dashboard Project">
+                    <figure class="frame">                   
+                        <img id="dashboard" src="img/dashboard-min_tn.jpg" alt="Dashboard Project">
+                        <figcaption>Web App Dashboard</figcaption>
+                    </figure>
                 </a>
             </li>
             
-             <li id="performance">
+             <li >
                 <a href="img/performance-min.png" Title="Optimisation Project">
-                <span>Title: Dashboard Project</span>
-                <img src="img/performance-min_tn.jpg" alt="Optimisation Project">
+                    <figure class="frame">                   
+                     <img id="performance" src="img/performance-min_tn.jpg" alt="Performance Project">
+                     <figcaption>Performance Optimisation</figcaption>
+                    </figure>              
                 </a>
             </li>
             
-             <li id="video">
+             <li >
+                <a href="img/responsive-min.png" Title="Responsive Web Design Project">
+                 <figure class="frame">                   
+                     <img id="responsive" src="img/responsive-min_tn.jpg" alt="Responsive Web Design Project">
+                     <figcaption>Responsive Web Design</figcaption>
+                    </figure>                
+                </a>
+            </li>
+            
+             <li >
+                <a href="img/accessibility-min.png" Title="Accessibility Refactor Project">
+                 <figure class="frame">                   
+                     <img id="accessibility" src="img/accessibility-min_tn.jpg" alt="Accessibility Refactor Project">
+                     <figcaption>Accessibility Refactor Project</figcaption>
+                    </figure>                
+                </a>
+            </li>
+            
+            
+        </ul>      
+        <ul>
+             <li >
+                <a href="img/photo-gallery-min.png" Title="Interactive Photo Gallery">
+                 <figure class="frame">                   
+                     <img id="photo" src="img/photo-gallery-min_tn.jpg" alt="Interactive Photo Gallery">
+                     <figcaption>Interactive Photo Gallery</figcaption>
+                    </figure>                 
+                </a>
+            </li>
+            
+             <li >
                 <a href="img/video-player-min.png" Title="Interactive Video Player">
-                <span>Title: Dashboard Project</span>
-                <img src="img/video-player-min_tn.jpg" alt="Interactive Video Player">
+                 <figure class="frame">                   
+                     <img id="video" src="img/video-player-min_tn.jpg" alt="Interactive Video Player">
+                     <figcaption>Interactive Video Player</figcaption>
+                    </figure>                 
                 </a>
-            </li>
-            
+            </li>           
         </ul>
-        
         
         </div>
         
@@ -74,196 +108,5 @@
 
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/jquery/2.2.4/jquery.min.js"></script>
-    <script>
-        var gallery = document.querySelector('#gallery');
-        var overlay = document.querySelector('#fade');
-        var lightbox = document.querySelector('#lightbox');
-        var lightboxContainer = document.querySelector('.lightbox-container');
-        var flipbutton;
-
-        var close = document.querySelector('#close');
-       
-        gallery.addEventListener('click', function(e){
-            e.preventDefault();
-            flipbutton = document.querySelector('#flip');
-         if(e.target && e.target.nodeName == "IMG"){
-                toggleLightBox();
-                var imgSource = e.target.getAttribute('src');
-                imgSource = imgSource.replace('_tn.jpg','.png');
-                var projectDiv =  createDiv(['project-card']);
-                
-                //Create Project Details Information - Front side
-                var projectContentDiv = createDiv(['front']);
-                projectContentDiv.appendChild(createProjectContent('Dashboard'));               
-                projectDiv.appendChild(projectContentDiv);    
-                
-                //Create Project Snapshot - Back side
-                var projectImageDiv =  createDiv(['back']); 
-                projectImageDiv.appendChild(createHeading('Dashboard Snapshot:'));
-                projectImageDiv.appendChild(createFlipButton());                
-                var projectImage = document.createElement('img');             
-                projectImage.setAttribute('src', imgSource);
-                projectImageDiv.appendChild(projectImage);             
-                projectDiv.appendChild(projectImageDiv);                             
-                
-                lightboxContainer.appendChild(projectDiv);
-             }           
-            
-        });
-        
-        close.addEventListener('click', function(){
-            toggleLightBox();
-        });
-               
-       
-        /*Shows or Hides the Lightbox*/
-        function toggleLightBox(){
-            if(overlay.style.display == 'block') {
-                overlay.style.display = 'none';
-              lightbox.style.display = 'none';
-            }
-             else {
-                  overlay.style.display = 'block';
-                lightbox.style.display = 'block';
-             }
-        }
-        
-        var objProjects = {
-          Dashboard: {
-          about: 'Design and build a responsive Web dashboard using html, CSS and JavaScript-driven charts and graphs',
-          features: ['Responsive web page from the supplied dashboard.png mockup ',
-                    'Demo alert notification using Jquery',
-                    'Chart widgets using Chart.js',
-                    'Social Stats Widgets using SVG',
-                    'New Members and Recent Activity Widgets',
-                    'Local storage to save the settings',
-                    'autocomplete feature for the user search box'],
-          skills:   "html, css, Javascript, Jquery, Javascript libraries: [Chart.js, autocomplete.js, toggle.js] and                local Storage",
-          url: 'https://hi2suresh.github.io/web-app-dashboard/'
-          }
-        };
-        
-        function createProjectContent(projectName){
-            var projectDetailsDiv = createDiv(['project-details-div']);
-            
-            var projectAboutDiv =  createDiv(['project-about-div']);
-            projectAboutDiv.appendChild(createHeading(projectName));
-            projectAboutDiv.appendChild(createParagraph(objProjects[projectName].about));
-            projectDetailsDiv.appendChild(projectAboutDiv);
-            
-            var projectFeaturesDiv =  createDiv(['project-features-div']);
-            projectFeaturesDiv.appendChild(createHeading('Project Features:'));
-            projectFeaturesDiv.appendChild(createFeatures(projectName));
-            projectDetailsDiv.appendChild(projectFeaturesDiv);
-            
-            var projectSkillsDiv =  createDiv(['project-skills-div']);
-            projectSkillsDiv.appendChild(createHeading('Tools & Technologies:'));
-            projectSkillsDiv.appendChild(createParagraph(objProjects[projectName].skills));
-            projectDetailsDiv.appendChild(projectSkillsDiv);
-            
-            var projectUrlDiv =  createDiv(['project-url-div']);
-            projectUrlDiv.appendChild(createLinkButton('project-url', objProjects[projectName].url, "See in Action"));
-            projectDetailsDiv.appendChild(projectUrlDiv);
-            projectDetailsDiv.appendChild(createFlipButton());
-            
-            return projectDetailsDiv;
-        }
-        
-        /*Create a Div Element and add class*/
-        function createDiv(divClass){
-            var div = document.createElement('div');
-            for(var i=0; i<divClass.length; i++){
-                div.classList.add(divClass[i]);
-            }
-            return div;
-        }
-        
-         /* Create Project Heading */
-        function createAbout(name,content){
-            var h2 = document.createElement('h2');
-            h2.innerHTML = name +' Project:';
-            h2.className = 'project-heading';   
-            
-            var p =document.createElement('p');
-            p.className = 'project-about';
-            p.innerHTML = content;
-            h2.appendChild(p);
-            return h2;            
-        }
-        
-        /* Create Project Heading Element*/
-        function createHeading(heading){
-            var h2 = document.createElement('h2');
-            h2.innerHTML = heading;
-            h2.className = 'project-heading'; 
-            return h2;
-        }
-        
-        /* Create Project Heading Element*/
-        function createParagraph(content){
-            var p =document.createElement('p');
-            p.className = 'project-about';
-            p.innerHTML = content;
-            return p;
-        }
-        
-
-        
-        /* Create Project Features List */
-        function createFeatures(projectName){
-            var featuresList = objProjects[projectName].features;                  
-            var ul = document.createElement('ul');
-            ul.className = 'project-features-list';
-            
-            for(var i=0; i<featuresList.length; i++){
-                let li = document.createElement('li');
-                li. innerHTML = featuresList[i];
-                ul.appendChild(li);
-            }
-           
-            return ul;
-        }
-        
-        /* Create Project URL link */
-        function createProjectUrl(url){
-            var link = document.createElement('a');
-            link.setAttribute('href',url);
-            link.setAttribute('target','_blank'); //Open the url in new window
-            link.innerHTML = 'See the Project in Action';
-            for(var i=0; i<divClass.length; i++){
-                div.classList.add(divClass[i]);
-            }
-            return link;
-        }
-        
-         /* Create Project URL link */
-        function createLinkButton(idValue, url, text){
-            var link = document.createElement('a');
-            link.id = idValue;
-            link.classList.add('button');
-            link.setAttribute('href',url);
-          /*  if(text.contains('Action')){
-                 link.setAttribute('target','_blank'); //Open the url in new window
-            } */          
-            link.innerHTML = text;           
-            return link;
-        }
-        
-         /* Create Project Flip Card Button */
-        function createFlipButton(){
-            var projectFlipDiv =  createDiv(['flip-div']);
-            var flipButton = createLinkButton('flip', '#', "Flip to See Other Side");
-            flipButton.addEventListener('click', function(){
-                var projectCard = document.querySelector('.project-card');
-                projectCard.classList.toggle('flipped');
-             });
-            projectFlipDiv.appendChild(flipButton);
-            return projectFlipDiv;
-        }
-        
-        
-    </script>
-<!--    <script src="js/main.js"></script> -->
-
+    <script src="js/profile.js"></script>
 </body>

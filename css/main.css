@@ -113,7 +113,7 @@ white-space: nowrap;
   -webkit-transform-style:preserve-3d;
 -moz-transform-style:preserve-3d;
 -ms-transform-style:preserve-3d;
-  transition: transform  1s ease-in-out;
+  transition: transform  0.5s ease-in-out;
   -webkit-transition:transform  1s ease-in-out;
   -moz-transition:transform  1s ease-in-out;  
 }
@@ -147,10 +147,12 @@ a.button {
     text-decoration: none;
     color: initial;
     border: 1px solid black;
-    background: blue;
+    background: grey;
     display: inline-block;    
     margin: auto;
     width: 100%;
+    height: 40px;
+    text-align: center;
 }
 
 
@@ -277,9 +279,14 @@ a.button {
       100% { opacity: 1; } 
   } 
 
+/*Frame for figures in the gallery*/
+.frame{
+       border: 1px solid orange; /*outside border*/
+       padding: 10px; /* creates whitespace between border & content */
+}
 @media (min-width:320px) {
     #container {
-    width: 95%;
+        width: 95%;
     }
 
     #about,#gallery > ul {
@@ -295,6 +302,9 @@ a.button {
     #about,#gallery > ul {
         -webkit-flex-direction: row;
         flex-direction: row; 
+        flex-wrap: wrap;
+        padding: 20px;
+        margin: auto;
     }
     
      #about img { 
