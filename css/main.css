@@ -157,7 +157,8 @@ a.button {
 
 
 .project-heading{
-    color: blueviolet;
+    color: #231B12;
+    margin-bottom: 5px;
 }
 
 #close {
@@ -168,6 +169,12 @@ a.button {
     font-size: 1.5em;
 }
 
+#project-main-heading{
+    text-align: center;
+    font-size: 1.5em;
+     color: #231B12;
+   
+}
 /*---------------------------------------
  Animations while showing Project Details
 -----------------------------------------*/
@@ -188,9 +195,8 @@ a.button {
       -o-animation-duration: 8s;
       -o-animation-timing-function: ease-in;
       -o-animation-iteration-count: 1; 
-      opacity: 1;
+      opacity: 1; 
      
-      margin: auto;
   } 
 
 
@@ -199,7 +205,8 @@ a.button {
       -moz-animation-delay: 0s, 1s;
       -webkit-animation-delay: 0s, 1s;
       -o-animation-delay: 0s, 1s;
-      border-bottom: 1px solid black;
+      border-bottom: 1px solid #B7B8B6;
+     margin: 20px auto;
   }
 
  .project-features-div {     
@@ -207,7 +214,8 @@ a.button {
       -moz-animation-delay: 0s, 3s;
       -webkit-animation-delay: 0s, 3s;
       -o-animation-delay: 0s, 3s;
-      border-bottom: 1px solid black;
+      border-bottom: 1px solid #B7B8B6;
+      margin: 20px auto;
   }
 
   .project-skills-div{     
@@ -215,8 +223,20 @@ a.button {
       -moz-animation-delay: 0s, 5s;
       -webkit-animation-delay: 0s, 5s;
       -o-animation-delay: 0s, 5s;
-       border-bottom: 1px solid black;
+       border-bottom: 1px solid #B7B8B6;
+       margin: 20px auto;
   }
+
+.features-list,.skills-list {
+    list-style-type: disc;
+    background: #324851;
+    color: white;   
+}
+
+.features-list > li, .skills-list > li {
+    padding: 10px;
+    border-bottom: 1px solid #BCBABE;
+}
 
 .project-url-div{
       animation-delay: 0s, 7s;
@@ -224,7 +244,7 @@ a.button {
       -webkit-animation-delay: 0s,7s;
       -o-animation-delay: 0s, 7s;
       display: inline-block;
-    width: 40%;
+      width: 40%;
 }
 
 .flip-div{

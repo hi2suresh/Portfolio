@@ -91,7 +91,7 @@ var gallery = document.querySelector('#gallery');
        
         gallery.addEventListener('click', function(e){
             e.preventDefault();
-            flipbutton = document.querySelector('#flip');
+//            flipbutton = document.querySelector('#flip');
          if(e.target && e.target.nodeName == "IMG"){
                 //Invoke LightBox
                 toggleLightBox();
@@ -143,6 +143,11 @@ var gallery = document.querySelector('#gallery');
  
         function createProjectContent(projectName){
             var projectDetailsDiv = createDiv(['project-details-div']);
+            //Create Project Main Heading
+            var h1 = document.createElement('h1');
+            h1.id = 'project-main-heading';
+            h1.innerHTML = 'Project Highlights';
+            projectDetailsDiv.appendChild(h1);
             
             //Create Project About description
             var projectAboutDiv =  createDiv(['project-about-div']);
@@ -153,13 +158,13 @@ var gallery = document.querySelector('#gallery');
             //Create Project Features List
             var projectFeaturesDiv =  createDiv(['project-features-div']);
             projectFeaturesDiv.appendChild(createHeading('Project Features:'));
-            projectFeaturesDiv.appendChild(createList(projectName, objProjects[projectName].features));
+            projectFeaturesDiv.appendChild(createList(projectName, objProjects[projectName].features,'features-list'));
             projectDetailsDiv.appendChild(projectFeaturesDiv);
             
             //Create Project Tools and Technologies List
             var projectSkillsDiv =  createDiv(['project-skills-div']);
             projectSkillsDiv.appendChild(createHeading('Tools & Technologies:'));
-            projectSkillsDiv.appendChild(createList(projectName, objProjects[projectName].skills));
+            projectSkillsDiv.appendChild(createList(projectName, objProjects[projectName].skills,'skills-list'));
             projectDetailsDiv.appendChild(projectSkillsDiv);
             
             //Create Project Live URL Button
@@ -204,12 +209,12 @@ var gallery = document.querySelector('#gallery');
         }
 
         /* Create Project Features and Skills List */
-        function createList(projectName, listArray){                        
-            var ul = document.createElement('ul');
-            ul.className = 'project-features-skills-list';
+        function createList(projectName, listArray, ulClassName){                        
+            var ul = document.createElement('UL');
+            ul.className = ulClassName;
             
             for(var i=0; i<listArray.length; i++){
-                let li = document.createElement('li');
+                let li = document.createElement('LI');
                 li. innerHTML = listArray[i];
                 ul.appendChild(li);
             }
