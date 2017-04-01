@@ -1,5 +1,6 @@
        var objProjects = {
           dashboard: {
+          displayName: "Web App Dashboard",
           about: 'Design and build a responsive Web dashboard using html, CSS and JavaScript-driven charts and graphs',
           features: ['Responsive Web page built from the supplied mockup',
                     'Demo alert notifications using Jquery',
@@ -14,6 +15,7 @@
           },
            
          performance: {
+          displayName: "Performance-Optimization",
           about: 'Optimization of graphics, HTML, CSS, and JavaScript to take a poorly optimized page and reduce the total load size and resource requests',
           features: ['Reduced Page size using Image Compressions, SVG and Minfication process',
                     'Improved user experience by using Javascript',                  
@@ -28,6 +30,7 @@
           },
            
         responsive: {
+          displayName: "Responsive Web Design",
           about: 'Build a responsive, mobile-first layout using HTML and CSS. The layout should demonstrate an understanding of responsive design by adjusting to accommodate small, medium, and large screen sizes',
           features: ['Responsive web page that accommodates to Mobile, Tablet and Desktop screens',
                     'Stanadard Design and Layout',
@@ -41,6 +44,7 @@
           },
            
           accessibility: {
+          displayName: "Web Accessibility Refactor",
           about: 'Improve accessibility of web site to allow anyone and everyone to use the website, regardless of physical or hardware differences. Also, modify the site so that its faster to download and easier to parse for software like search engines.',
           features: ['A Web page having sufficient contrast  of colors for both standard vision and color deficient user',
                     'A Web page designed to have hierarchical structue to assist screen readers',
@@ -54,6 +58,7 @@
           },
            
          photo: {
+          displayName: "Interactive Photo Gallery",
           about: 'Create an interactive photo gallery using JavaScript and jQuery. At the top of the page, have a search area where photos will hide and show depending on user input.',
           features: ['An ability to click on thumbnail images in the gallery and view them in a lightbox',
                     'A search box at the top of the page to filters photos based on the captions',
@@ -67,6 +72,7 @@
           },
            
          video: {
+          displayName: "Interactive Video Player",
           about: 'Build an HTML5 video player using JavaScript and the HTML5 Video API. Using the supplied mockups, video files, and transcript, build an interactive video player that synchronizes the video and the transcript. The transcript should be placed below the video, and should highlight as the video progresses. When a user clicks any part of the transcript it should take them to the appropriate place in the video',
           features: ['A video player implemented using the mediaelement.js library',
                     'Customised skin for the Video Player',
@@ -91,7 +97,7 @@ var gallery = document.querySelector('#gallery');
        
         gallery.addEventListener('click', function(e){
             e.preventDefault();
-//            flipbutton = document.querySelector('#flip');
+            animateToTop(e);
          if(e.target && e.target.nodeName == "IMG"){
                 //Invoke LightBox
                 toggleLightBox();
@@ -151,7 +157,7 @@ var gallery = document.querySelector('#gallery');
             
             //Create Project About description
             var projectAboutDiv =  createDiv(['project-about-div']);
-            projectAboutDiv.appendChild(createHeading(projectName));
+            projectAboutDiv.appendChild(createHeading(objProjects[projectName].displayName));
             projectAboutDiv.appendChild(createParagraph(objProjects[projectName].about));
             projectDetailsDiv.appendChild(projectAboutDiv);
             
@@ -284,3 +290,15 @@ var gallery = document.querySelector('#gallery');
             return projectFlipDiv;
         }
         
+        /*Moves the view to top*/
+        function animateToTop(e) {
+            e.preventDefault();
+            var scrollToTop = window.setInterval(function() {
+            var pos = window.pageYOffset;
+            if ( pos > 0 ) {
+                window.scrollTo( 0, pos - 20 );
+            } else {
+                window.clearInterval( scrollToTop );
+            }
+            }, 16);
+        }

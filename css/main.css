@@ -89,12 +89,12 @@ white-space: nowrap;
 .lightbox-content {
    display: none;
     position: absolute;
-    top: 10%;
+    top: 2%;
     left: 10%;
     width: 80%;
     height: 80%;
     padding: 16px;
-    border: 16px solid orange;
+    border: 16px solid #DE7A72;
     background-color: white;
     z-index:1002;
     overflow: auto;
@@ -139,26 +139,14 @@ white-space: nowrap;
   transform: rotateY( 180deg );
 }
 
-a.button {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
-
-    text-decoration: none;
-    color: initial;
-    border: 1px solid black;
-    background: grey;
-    display: inline-block;    
-    margin: auto;
-    width: 100%;
-    height: 40px;
-    text-align: center;
-}
 
 
 .project-heading{
-    color: #231B12;
+/*    color: #231B12;*/
     margin-bottom: 5px;
+    background: #324851;
+    color: white;
+    padding: 5px;
 }
 
 #close {
@@ -172,7 +160,8 @@ a.button {
 #project-main-heading{
     text-align: center;
     font-size: 1.5em;
-     color: #231B12;
+    color: #324851;
+    margin-bottom: 5px;
    
 }
 /*---------------------------------------
@@ -205,17 +194,20 @@ a.button {
       -moz-animation-delay: 0s, 1s;
       -webkit-animation-delay: 0s, 1s;
       -o-animation-delay: 0s, 1s;
-      border-bottom: 1px solid #B7B8B6;
-     margin: 20px auto;
+/*      border-bottom: 1px solid #B7B8B6;*/
+/*     margin: 5px auto;*/
   }
+
+.project-about {
+    color:  #324851;
+}
 
  .project-features-div {     
       animation-delay: 0s, 3s;
       -moz-animation-delay: 0s, 3s;
       -webkit-animation-delay: 0s, 3s;
       -o-animation-delay: 0s, 3s;
-      border-bottom: 1px solid #B7B8B6;
-      margin: 20px auto;
+/*      border-bottom: 1px solid #B7B8B6;*/
   }
 
   .project-skills-div{     
@@ -223,20 +215,39 @@ a.button {
       -moz-animation-delay: 0s, 5s;
       -webkit-animation-delay: 0s, 5s;
       -o-animation-delay: 0s, 5s;
-       border-bottom: 1px solid #B7B8B6;
-       margin: 20px auto;
+/*       margin: 10px auto;*/
   }
 
-.features-list,.skills-list {
-    list-style-type: disc;
-    background: #324851;
-    color: white;   
+.features-list{
+    color: #324851;   
 }
 
-.features-list > li, .skills-list > li {
-    padding: 10px;
+.features-list > li{
+    padding: 5px;
     border-bottom: 1px solid #BCBABE;
 }
+
+.skills-list {
+/*    background: #324851;*/
+    color: white;
+    
+}
+
+.skills-list > li {
+    padding: 5px;
+    color: #324851;
+    background: white;
+    display: inline-block;   
+}
+
+.features-list > li:before {
+  content: '✓ ';  
+}
+
+.skills-list > li:before {
+  content: '\2B9E\00a0';  
+}
+
 
 .project-url-div{
       animation-delay: 0s, 7s;
@@ -244,7 +255,8 @@ a.button {
       -webkit-animation-delay: 0s,7s;
       -o-animation-delay: 0s, 7s;
       display: inline-block;
-      width: 40%;
+      width: 45%;
+/*      margin-right: 5px;*/
 }
 
 .flip-div{
@@ -252,8 +264,25 @@ a.button {
       -moz-animation-delay: 0s,7s;
       -webkit-animation-delay: 0s, 7s;
       -o-animation-delay: 0s, 7s;
-    display: inline-block;
-    width: 40%;
+/*     display: inline-block;*/
+     width: 45%;
+    float: right;
+/*    margin-left: 5px;*/
+}
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    color: #324851;
+    border: 1px solid black;
+    background: #DE7A72;
+    display: inline-block;    
+    margin: auto;
+    width: 100%;
+/*    height: 50px;*/
+    text-align: center;
+    padding: 5px;
 }
 
 
