@@ -76,6 +76,10 @@ white-space: nowrap;
   50% { border-color: orange; }
 }
 
+/*=============================
+CSS for Lightbox Mode
+=============================*/
+
 .black-overlay {
     position:absolute; /* keeps the lightbox window in the current viewport */
     top:0; 
@@ -89,12 +93,12 @@ white-space: nowrap;
 .lightbox-content {
    display: none;
     position: absolute;
-    top: 2%;
-    left: 10%;
-    width: 80%;
-    height: 80%;
-    padding: 16px;
-    border: 16px solid #DE7A72;
+    top: 0.5%;
+    left: 5%;
+    width: 90%;
+    height: 60%;
+    padding: 8px;
+    border: 4px solid #DE7A72;
     background-color: white;
     z-index:1002;
     overflow: auto;
@@ -104,7 +108,9 @@ white-space: nowrap;
     position: relative;
     perspective: 100px;
 }
-
+/*=============================
+CSS for Flip Card Effect
+=============================*/
 .project-card {
   height: 100%;
   width: 100%;
@@ -116,6 +122,7 @@ white-space: nowrap;
   transition: transform  0.5s ease-in-out;
   -webkit-transition:transform  1s ease-in-out;
   -moz-transition:transform  1s ease-in-out;  
+    backface-visibility: hidden;
 }
 
 .project-card > div{
@@ -125,12 +132,13 @@ white-space: nowrap;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   text-align: left;  
 }
 
-.project-card .front {
+/*.project-card .front {
   background: red;
-}
+}*/
 .project-card .back {
   transform: rotateY( 180deg );
 }
@@ -194,13 +202,8 @@ white-space: nowrap;
       -moz-animation-delay: 0s, 1s;
       -webkit-animation-delay: 0s, 1s;
       -o-animation-delay: 0s, 1s;
-/*      border-bottom: 1px solid #B7B8B6;*/
-/*     margin: 5px auto;*/
   }
 
-.project-about {
-    color:  #324851;
-}
 
  .project-features-div {     
       animation-delay: 0s, 3s;
@@ -217,36 +220,6 @@ white-space: nowrap;
       -o-animation-delay: 0s, 5s;
 /*       margin: 10px auto;*/
   }
-
-.features-list{
-    color: #324851;   
-}
-
-.features-list > li{
-    padding: 5px;
-    border-bottom: 1px solid #BCBABE;
-}
-
-.skills-list {
-/*    background: #324851;*/
-    color: white;
-    
-}
-
-.skills-list > li {
-    padding: 5px;
-    color: #324851;
-    background: white;
-    display: inline-block;   
-}
-
-.features-list > li:before {
-  content: '✓ ';  
-}
-
-.skills-list > li:before {
-  content: '\2B9E\00a0';  
-}
 
 
 .project-url-div{
@@ -269,22 +242,6 @@ white-space: nowrap;
     float: right;
 /*    margin-left: 5px;*/
 }
-a.button {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
-    text-decoration: none;
-    color: #324851;
-    border: 1px solid black;
-    background: #DE7A72;
-    display: inline-block;    
-    margin: auto;
-    width: 100%;
-/*    height: 50px;*/
-    text-align: center;
-    padding: 5px;
-}
-
 
   @keyframes hide
   { 
@@ -328,6 +285,60 @@ a.button {
       100% { opacity: 1; } 
   } 
 
+
+.project-about {
+    color:  #324851;
+}
+
+.features-list{
+    color: #324851;   
+}
+
+.features-list > li{
+    padding: 5px;
+    border-bottom: 1px solid #BCBABE;
+}
+
+.skills-list {
+/*    background: #324851;*/
+    color: white;
+    
+}
+
+.skills-list > li {
+    padding: 5px;
+    color: #324851;
+    background: white;
+    display: inline-block;   
+}
+
+.features-list > li:before {
+  content: '✓ ';  
+}
+
+.skills-list > li:before {
+  content: '\2B9E\00a0';  
+}
+
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    color: #324851;
+    border: 1px solid black;
+    background: #DE7A72;
+    display: inline-block;    
+    margin: auto;
+    width: 100%;
+/*    height: 50px;*/
+    text-align: center;
+    padding: 5px;
+}
+
+
+
 /*Frame for figures in the gallery*/
 .frame{
        border: 1px solid orange; /*outside border*/
@@ -345,7 +356,9 @@ a.button {
     
 }
 
-
+/*---------------------------------------
+ Table Settings
+-----------------------------------------*/
 @media (min-width:768px) {    
     
     #about,#gallery > ul {
@@ -365,14 +378,29 @@ a.button {
         padding-left: 10px;
         padding-bottom: 10px;
     }
+    
+.lightbox-content {
+    top: 1%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    padding: 12px;
+    border: 12px solid #DE7A72;  
+    }
 }
 
-
+/*---------------------------------------
+ Desktop Settings
+-----------------------------------------*/
 @media (min-width:1024px) {
 
      #container {
          width: 100%;
     }
     
+    .lightbox-content {
+        padding: 16px;
+        border: 16px solid #DE7A72;
+    }
   
 }

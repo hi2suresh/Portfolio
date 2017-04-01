@@ -1,4 +1,5 @@
-       var objProjects = {
+/*Store the Project details in an object*/
+var objProjects = {
           dashboard: {
           displayName: "Web App Dashboard",
           about: 'Design and build a responsive Web dashboard using html, CSS and JavaScript-driven charts and graphs',
@@ -87,15 +88,15 @@
         };
           
 
+/*---------------------Global Variables-----------------------------------------*/
 var gallery = document.querySelector('#gallery');
-        var overlay = document.querySelector('#fade');
-        var lightbox = document.querySelector('#lightbox');
-        var lightboxContainer = document.querySelector('.lightbox-container');
-        var flipbutton;
-
-        var close = document.querySelector('#close');
-       
-        gallery.addEventListener('click', function(e){
+var overlay = document.querySelector('#fade');
+var lightbox = document.querySelector('#lightbox');
+var lightboxContainer = document.querySelector('.lightbox-container');
+var close = document.querySelector('#close');
+    
+/*-----------------Add an event Listener to Open Project Card in lightbox mode---------------*/
+gallery.addEventListener('click', function(e){
             e.preventDefault();
             animateToTop(e);
          if(e.target && e.target.nodeName == "IMG"){
@@ -125,7 +126,8 @@ var gallery = document.querySelector('#gallery');
              }           
             
         });
-        
+/*-----------------Add an event Listener to close lightbox mode---------------*/
+
         close.addEventListener('click', function(){
             //Close the Lightbox
             toggleLightBox();
@@ -145,8 +147,10 @@ var gallery = document.querySelector('#gallery');
                 lightbox.style.display = 'block';
              }
         }
-        
- 
+
+/*=============================================================
+Populate Project Content 
+=============================================================*/ 
         function createProjectContent(projectName){
             var projectDetailsDiv = createDiv(['project-details-div']);
             //Create Project Main Heading
@@ -271,9 +275,10 @@ var gallery = document.querySelector('#gallery');
             link.id = idValue;
             link.classList.add('button');
             link.setAttribute('href',url);
-          /*  if(text.contains('Action')){
+            //Add a target attribute Project Live URL button 
+            if(text.includes('Proj')){
                  link.setAttribute('target','_blank'); //Open the url in new window
-            } */          
+            }           
             link.innerHTML = text;           
             return link;
         }
