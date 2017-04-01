@@ -103,7 +103,7 @@ gallery.addEventListener('click', function(e){
                 //Invoke LightBox
                 toggleLightBox();
                 var projectName = e.target.getAttribute('id');
-                var nameUppercase = projectName.charAt(0).toUpperCase() + projectName.slice(1);
+//                var nameUppercase = projectName.charAt(0).toUpperCase() + projectName.slice(1);
                 var imgSource = e.target.getAttribute('src');
                 imgSource = imgSource.replace('_tn.jpg','.png');
                 var projectDiv =  createDiv(['project-card']);
@@ -114,9 +114,9 @@ gallery.addEventListener('click', function(e){
                 projectDiv.appendChild(projectContentDiv);    
                 
                 //Create Project Snapshot - Back side
-                var projectImageDiv =  createDiv(['back']); 
-                projectImageDiv.appendChild(createHeading(nameUppercase+' Snapshot:'));
-                projectImageDiv.appendChild(createFlipButton());                
+                var projectImageDiv =  createDiv(['back']);
+                projectImageDiv.appendChild(createFlipButton('flip-image-div'));                
+                projectImageDiv.appendChild(createHeading(objProjects[projectName].displayName+' Snapshot:'));
                 var projectImage = document.createElement('img');             
                 projectImage.setAttribute('src', imgSource);
                 projectImageDiv.appendChild(projectImage);             
@@ -179,11 +179,11 @@ Populate Project Content
             
             //Create Project Live URL Button
             var projectUrlDiv =  createDiv(['project-url-div']);
-            projectUrlDiv.appendChild(createLinkButton('project-url', objProjects[projectName].url, "Project Live URL"));
+            projectUrlDiv.appendChild(createLinkButton(objProjects[projectName].url, "Project Live URL"));
             projectDetailsDiv.appendChild(projectUrlDiv);
             
             //Create and Append Project Flip Card Button
-            projectDetailsDiv.appendChild(createFlipButton());
+            projectDetailsDiv.appendChild(createFlipButton('flip-highlights-div'));
             
             return projectDetailsDiv;
         }
@@ -270,9 +270,9 @@ Populate Project Content
         }
         
          /* Create Project URL link */
-        function createLinkButton(idValue, url, text){
+        function createLinkButton(url, text){
             var link = document.createElement('a');
-            link.id = idValue;
+//            link.id = idValue;
             link.classList.add('button');
             link.setAttribute('href',url);
             //Add a target attribute Project Live URL button 
@@ -284,9 +284,9 @@ Populate Project Content
         }
         
          /* Create Project Flip Card Button */
-        function createFlipButton(){
-            var projectFlipDiv =  createDiv(['flip-div']);
-            var flipButton = createLinkButton('flip', '#', "Flip to See Other Side");
+        function createFlipButton(side){
+            var projectFlipDiv =  createDiv([side]);
+            var flipButton = createLinkButton('#', "Flip Back");
             flipButton.addEventListener('click', function(){
                 var projectCard = document.querySelector('.project-card');
                 projectCard.classList.toggle('flipped');
