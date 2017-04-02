@@ -25,7 +25,7 @@ a {
 #container {
     margin: 0 auto;
     position: relative;
-    background: #fff;
+    background: #f7f5f0;
 }
 
 /* Navigational Menu Set-up */
@@ -41,15 +41,30 @@ a {
     padding: 5px;
 }
 
-#about, #gallery > ul {
+#about {
  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border-bottom: 1px solid black;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-bottom: 10px;
 }
 
-#about span {    
-    float: left;
+.about-div {
+      margin: 10px;
+      padding: 10px;
+      max-width: 500px;
+      background: #fff;
+      border-bottom: 4px solid #ccc;
+      border-radius: 6px;
+      transition: all .5s;
+    }
+
+.about-div > h2 {
+    margin-bottom: 10px;
+}
+
+.about-div > p {
     text-align: left;
 }
 
@@ -93,7 +108,7 @@ white-space: nowrap;
       border-radius: 6px;
       transition: all .5s;
     }
-    .card:hover {
+    .card:hover, .about-div:hover {
       border-color: black;
       transform: scale(1.1);
     }
@@ -358,13 +373,63 @@ a.button {
 }
 
 
+/*---------------------------------------
+ Footer Settings
+-----------------------------------------*/
+footer {
+      width: 100%;
+      min-height: 30px;
+      padding: 20px 0 40px 20px;
+    }
+
+    
+    footer ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    footer ul li {
+      display: inline-block;
+    }
+
+    footer .copyright {
+/*      top: -8px;*/
+      padding-top: 10px;
+      font-size: .75em;
+    }
+
+    a.social {
+      display: inline-block;
+      text-indent: -9999px;
+      margin-left: 5px;
+      width: 30px;
+      height: 30px;
+      background-size: 30px 30px;
+      opacity: .4;
+      transition: all .5s;
+    }
+    a.twitter {
+      background-image: url(../img/twitter.svg);
+    }
+    a.linkedin {
+      background-image: url(../img/linkedin.svg);
+    }
+    a.github {
+      background-image: url(../img/github.svg);
+    }
+    a.social:hover {
+      opacity: 1;
+    }
+
+
 
 @media (min-width:320px) {
     #container {
         width: 95%;
     }
 
-    #about,#gallery > div {
+   #gallery > div {
     -webkit-flex-direction: column;
     flex-direction: column;
     }
@@ -374,9 +439,32 @@ a.button {
 /*---------------------------------------
  Table Settings
 -----------------------------------------*/
-@media (min-width:768px) {    
+@media (min-width:768px) {  
+
+    #about {
+        flex-direction: row;
+        margin-bottom: 20px;
+    }
     
-    #about,#gallery > div {
+    .card {
+      margin: 10px;
+      padding: 10px;
+      max-width: 500px;  
+    }
+    
+    .about-div:hover {
+      border-color: black;
+      transform: scale(1.05);
+    }
+    
+#about img {
+    width: 400px;
+    height: 100%;
+}
+    
+
+    
+#gallery > div {
         -webkit-flex-direction: row;
         flex-direction: row; 
         flex-wrap: wrap;
@@ -385,16 +473,8 @@ a.button {
        
     }
     
-     #about img { 
-         width: 150px;
-         height: 150px;
-    }
-    
-    #about span {    
-        padding-left: 10px;
-        padding-bottom: 10px;
-    }    
-      .
+        
+        .
     
 .lightbox-content {
     top: 1%;
@@ -419,6 +499,13 @@ a.button {
         width: 300px;
         height: 300px;
     }
+    
+    footer {
+        font-size: 1.3em;
+        max-width: 1200px;
+        margin: 40px auto;
+    }
+      
    
 }
 
