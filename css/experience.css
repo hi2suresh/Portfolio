@@ -1,0 +1,27 @@
+
+.experience-div {
+      margin: 10px;
+      padding: 10px;
+      max-width: 500px;
+      background: #fff;
+      border-bottom: 4px solid #ccc;
+      border-radius: 6px;
+      transition: all .5s;
+    }
+
+.experience-div:hover {    
+      border-color: black;
+      transform: scale(1.1);    
+}
+
+#experience  h2 {
+    text-align: left;
+}
+
+#experience  li {
+     list-style-type:circle;    
+    list-style-position: inside;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

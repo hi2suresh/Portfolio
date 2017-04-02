@@ -28,19 +28,27 @@ a {
     background: #f7f5f0;
 }
 
-/* Navigational Menu Set-up */
-
+/*=============================
+Navigational Menu Set-up 
+=============================*/
 #menu {
-    background-color:lightgray;
+    background: #324851;    
     text-align:center;
 }
 
 #menu li {
     display:inline-block;
-    margin:5px;
-    padding: 5px;
+    margin:3px;
+    padding: 3px;    
 }
 
+#menu a {
+    color: white;
+}
+
+/*=============================
+About CSS settngs
+=============================*/
 #about {
  display: -webkit-box;
   display: -ms-flexbox;
@@ -68,9 +76,20 @@ a {
     text-align: left;
 }
 
+#typewriter {
+    margin: 10px;
+      padding: 10px;
+     background: #fff;
+      border-bottom: 4px solid #ccc;
+      border-radius: 6px; 
+/*    max-width: 500px;*/
+}
+
 .note{
+/*
 font-family: cursive;
 font-style: italic;
+*/
  overflow: hidden; /* Ensures the content is not revealed until the animation */
 white-space: nowrap;
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
@@ -441,6 +460,14 @@ footer {
 -----------------------------------------*/
 @media (min-width:768px) {  
 
+/* Navigational Menu Set-up */
+
+
+#menu li {
+    margin:5px;
+    padding: 5px;    
+}
+    
     #about {
         flex-direction: row;
         margin-bottom: 20px;
