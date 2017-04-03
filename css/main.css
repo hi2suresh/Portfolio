@@ -58,7 +58,7 @@ About CSS settngs
   margin-bottom: 10px;
 }
 
-.about-div {
+.about-div, .experience-div {
       margin: 10px;
       padding: 10px;
       max-width: 500px;
@@ -127,7 +127,7 @@ white-space: nowrap;
       border-radius: 6px;
       transition: all .5s;
     }
-    .card:hover, .about-div:hover {
+    .card:hover, .about-div:hover, .experience-div:hover {
       border-color: black;
       transform: scale(1.1);
     }
@@ -229,7 +229,7 @@ CSS for Flip Card Effect
 /*---------------------------------------
  Animations while showing Project Details
 -----------------------------------------*/
-.project-details-div > div{ 
+.project-details-div > div, #experience > div{ 
       animation-name: hide, slideIn;
       animation-duration: 8s;
       animation-timing-function: ease-in;
@@ -251,15 +251,14 @@ CSS for Flip Card Effect
   } 
 
 
- .project-about-div {
+ .project-about-div, #experience-div1 > div:nth-child(1) {
       animation-delay: 0s, 1s;
       -moz-animation-delay: 0s, 1s;
       -webkit-animation-delay: 0s, 1s;
       -o-animation-delay: 0s, 1s;
   }
 
-
- .project-features-div {     
+ .project-features-div, #experience-div1 > div:nth-child(2) {     
       animation-delay: 0s, 3s;
       -moz-animation-delay: 0s, 3s;
       -webkit-animation-delay: 0s, 3s;
@@ -267,7 +266,7 @@ CSS for Flip Card Effect
 /*      border-bottom: 1px solid #B7B8B6;*/
   }
 
-  .project-skills-div{     
+  .project-skills-div, #experience-div2 > div:nth-child(1){     
       animation-delay: 0s, 5s;
       -moz-animation-delay: 0s, 5s;
       -webkit-animation-delay: 0s, 5s;
@@ -276,7 +275,7 @@ CSS for Flip Card Effect
   }
 
 
-.project-url-div{
+.project-url-div, #experience-div2 > div:nth-child(2){
       animation-delay: 0s, 7s;
       -moz-animation-delay: 0s,7s;
       -webkit-animation-delay: 0s,7s;
@@ -441,7 +440,27 @@ footer {
       opacity: 1;
     }
 
+/*---------------------------------------
+ Experience and About Settings
+-----------------------------------------*/
+#experience > div {
+ display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  
+}
+#experience  h2 {
+    text-align: left;
+}
 
+#experience  li {
+     list-style-type:circle;    
+    list-style-position: inside;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
 
 @media (min-width:320px) {
     #container {
@@ -501,7 +520,6 @@ footer {
     }
     
         
-        .
     
 .lightbox-content {
     top: 1%;
@@ -533,7 +551,16 @@ footer {
         margin: 40px auto;
     }
       
-   
+  #experience > div {
+      flex-direction: row;       
+      flex-grow: 0;
+      padding: 20px;
+     
+    }
+    
+    .experience-div {
+         width: 45%;
+    }
 }
 
 /*---------------------------------------
