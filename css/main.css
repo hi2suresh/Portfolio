@@ -229,7 +229,7 @@ CSS for Flip Card Effect
 /*---------------------------------------
  Animations while showing Project Details
 -----------------------------------------*/
-.project-details-div > div, #experience > div{ 
+.project-details-div > div{ 
       animation-name: hide, slideIn;
       animation-duration: 8s;
       animation-timing-function: ease-in;
@@ -251,14 +251,14 @@ CSS for Flip Card Effect
   } 
 
 
- .project-about-div, #experience-div1 > div:nth-child(1) {
+ .project-about-div{
       animation-delay: 0s, 1s;
       -moz-animation-delay: 0s, 1s;
       -webkit-animation-delay: 0s, 1s;
       -o-animation-delay: 0s, 1s;
   }
 
- .project-features-div, #experience-div1 > div:nth-child(2) {     
+ .project-features-div {     
       animation-delay: 0s, 3s;
       -moz-animation-delay: 0s, 3s;
       -webkit-animation-delay: 0s, 3s;
@@ -266,7 +266,7 @@ CSS for Flip Card Effect
 /*      border-bottom: 1px solid #B7B8B6;*/
   }
 
-  .project-skills-div, #experience-div2 > div:nth-child(1){     
+  .project-skills-div{     
       animation-delay: 0s, 5s;
       -moz-animation-delay: 0s, 5s;
       -webkit-animation-delay: 0s, 5s;
@@ -275,7 +275,7 @@ CSS for Flip Card Effect
   }
 
 
-.project-url-div, #experience-div2 > div:nth-child(2){
+.project-url-div {
       animation-delay: 0s, 7s;
       -moz-animation-delay: 0s,7s;
       -webkit-animation-delay: 0s,7s;
@@ -461,6 +461,59 @@ footer {
     padding-top: 5px;
     padding-bottom: 5px;
 }
+
+/* Animation Settings*/
+#experience-div1 >div, #experience-div2 > div{ 
+      animation-name: hide, slideIn;
+      animation-duration: 4s;
+      animation-timing-function: ease-in;
+      animation-iteration-count: 1; 
+      -moz-animation-name: hide, slideIn;
+      -moz-animation-duration: 4s;
+      -moz-animation-timing-function: ease-in;
+      -moz-animation-iteration-count: 1; 
+      -webkit-animation-name: hide, slideIn;
+      -webkit-animation-duration: 4s;
+      -webkit-animation-timing-function: ease-in;
+      -webkit-animation-iteration-count: 1; 
+      -o-animation-name: hide, slideIn;
+      -o-animation-duration: 4s;
+      -o-animation-timing-function: ease-in;
+      -o-animation-iteration-count: 1; 
+      opacity: 1; 
+     
+  } 
+
+
+ #platform{
+      animation-delay: 0s, 1s;
+      -moz-animation-delay: 0s, 1s;
+      -webkit-animation-delay: 0s, 1s;
+      -o-animation-delay: 0s, 1s;
+  }
+
+ #automation {     
+      animation-delay: 0s, 2s;
+      -moz-animation-delay: 0s, 2s;
+      -webkit-animation-delay: 0s, 2s;
+      -o-animation-delay: 0s, 2s;
+/*      border-bottom: 1px solid #B7B8B6;*/
+  }
+
+  #build{     
+      animation-delay: 0s, 3s;
+      -moz-animation-delay: 0s, 3s;
+      -webkit-animation-delay: 0s, 3s;
+      -o-animation-delay: 0s, 3s;
+  }
+
+ #certifications{     
+      animation-delay: 0s, 4s;
+      -moz-animation-delay: 0s, 4s;
+      -webkit-animation-delay: 0s, 4s;
+      -o-animation-delay: 0s, 4s;
+  }
+
 
 @media (min-width:320px) {
     #container {
