@@ -58,7 +58,7 @@ About CSS settngs
   margin-bottom: 10px;
 }
 
-.about-div, .experience-div {
+.about-div, .experience-div, .about-me-div {
       margin: 10px;
       padding: 10px;
       max-width: 500px;
@@ -127,7 +127,7 @@ white-space: nowrap;
       border-radius: 6px;
       transition: all .5s;
     }
-    .card:hover, .about-div:hover, .experience-div:hover {
+    .card:hover, .about-div:hover, .experience-div:hover, .about-me-div:hover {
       border-color: black;
       transform: scale(1.1);
     }
@@ -443,19 +443,20 @@ footer {
 /*---------------------------------------
  Experience and About Settings
 -----------------------------------------*/
-#experience > div {
+#experience > div , #about-me > div{
  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   flex-direction: column;
   justify-content: space-between;  
 }
-#experience  h2 {
+#experience  h2, #about-me h2 {
     text-align: left;
+    margin-bottom: 5px;
 }
 
-#experience  li {
-     list-style-type:circle;    
+#experience  li, #contact li, #hobbies li, #passion li{
+    list-style-type:circle;    
     list-style-position: inside;
     text-align: left;
     padding-top: 5px;
@@ -463,21 +464,21 @@ footer {
 }
 
 /* Animation Settings*/
-#experience-div1 >div, #experience-div2 > div{ 
+#experience-div1 >div, #experience-div2 > div, #about-me-div1 >div, #about-me-div2 >div{ 
       animation-name: hide, slideIn;
-      animation-duration: 4s;
+      animation-duration: 2s;
       animation-timing-function: ease-in;
       animation-iteration-count: 1; 
       -moz-animation-name: hide, slideIn;
-      -moz-animation-duration: 4s;
+      -moz-animation-duration: 2s;
       -moz-animation-timing-function: ease-in;
       -moz-animation-iteration-count: 1; 
       -webkit-animation-name: hide, slideIn;
-      -webkit-animation-duration: 4s;
+      -webkit-animation-duration: 2s;
       -webkit-animation-timing-function: ease-in;
       -webkit-animation-iteration-count: 1; 
       -o-animation-name: hide, slideIn;
-      -o-animation-duration: 4s;
+      -o-animation-duration: 2s;
       -o-animation-timing-function: ease-in;
       -o-animation-iteration-count: 1; 
       opacity: 1; 
@@ -485,34 +486,51 @@ footer {
   } 
 
 
- #platform{
+ #platform, #contact{
+      animation-delay: 0s, 0.5s;
+      -moz-animation-delay: 0s, 0.5s;
+      -webkit-animation-delay: 0s, 0.5s;
+      -o-animation-delay: 0s, 0.5s;
+  }
+
+ #automation, #passion {     
       animation-delay: 0s, 1s;
       -moz-animation-delay: 0s, 1s;
       -webkit-animation-delay: 0s, 1s;
       -o-animation-delay: 0s, 1s;
+/*      border-bottom: 1px solid #B7B8B6;*/
   }
 
- #automation {     
+  #build, #hobbies{     
+      animation-delay: 0s, 1.5s;
+      -moz-animation-delay: 0s, 1.5s;
+      -webkit-animation-delay: 0s, 1.5s;
+      -o-animation-delay: 0s, 1.5s;
+  }
+
+ #certifications, #admire{     
       animation-delay: 0s, 2s;
       -moz-animation-delay: 0s, 2s;
       -webkit-animation-delay: 0s, 2s;
       -o-animation-delay: 0s, 2s;
-/*      border-bottom: 1px solid #B7B8B6;*/
   }
 
-  #build{     
-      animation-delay: 0s, 3s;
-      -moz-animation-delay: 0s, 3s;
-      -webkit-animation-delay: 0s, 3s;
-      -o-animation-delay: 0s, 3s;
-  }
+#admire ul, li, figure    {   
+        padding: 2px;
+        margin: 0 0 0 1.5px;
+    }
 
- #certifications{     
-      animation-delay: 0s, 4s;
-      -moz-animation-delay: 0s, 4s;
-      -webkit-animation-delay: 0s, 4s;
-      -o-animation-delay: 0s, 4s;
-  }
+    #admire li{
+        list-style-type: none;      
+        display: inline-block;   
+    }
+
+
+    #admire img{
+        border-radius: 50%;
+        width: 75px;   
+    }
+
 
 
 @media (min-width:320px) {
@@ -604,14 +622,14 @@ footer {
         margin: 40px auto;
     }
       
-  #experience > div {
+  #experience > div , #about-me > div {
       flex-direction: row;       
       flex-grow: 0;
       padding: 20px;
      
     }
     
-    .experience-div {
+    .experience-div, .about-me-div {
          width: 45%;
     }
 }
