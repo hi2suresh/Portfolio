@@ -570,16 +570,27 @@ footer {
     }
 
 /* The typing effect */
-@keyframes typing {
+@-webkit-keyframes typing {
  0%{width: 0;}
   100%{ width: 100%; } 
 }
 
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: orange; }
-}  
+@-moz-keyframes typing {
+    0%{width: 0;}
+  100%{ width: 100%; } 
+}
+
+@-ms-keyframes typing {
+    0%{width: 0;}
+  100%{ width: 100%; } 
+}
+
+@keyframes typing {
+    0%{width: 0;}
+  100%{ width: 100%; } 
+}
+
+  
 
 
 #gallery > div {
