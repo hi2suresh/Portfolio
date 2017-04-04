@@ -93,7 +93,7 @@ var gallery = document.querySelector('#gallery');
 var overlay = document.querySelector('#fade');
 var lightbox = document.querySelector('#lightbox');
 var lightboxContainer = document.querySelector('.lightbox-container');
-var close = document.querySelector('#close');
+var closeButton = document.querySelector('#close');
     
 /*-----------------Add an event Listener to Open Project Card in lightbox mode---------------*/
 gallery.addEventListener('click', function(e){
@@ -128,7 +128,7 @@ gallery.addEventListener('click', function(e){
         });
 /*-----------------Add an event Listener to close lightbox mode---------------*/
 
-        close.addEventListener('click', function(){
+        closeButton.addEventListener('click', function(){
             //Close the Lightbox
             toggleLightBox();
             //Empty the Lightbox container
@@ -196,19 +196,7 @@ Populate Project Content
             }
             return div;
         }
-        
-         /* Create Project Heading */
-        function createAbout(name,content){
-            var h2 = document.createElement('h2');
-            h2.innerHTML = name +' Project:';
-            h2.className = 'project-heading';   
-            
-            var p =document.createElement('p');
-            p.className = 'project-about';
-            p.innerHTML = content;
-            h2.appendChild(p);
-            return h2;            
-        }
+         
         
         /* Create Project Heading Element*/
         function createHeading(heading){
@@ -238,36 +226,7 @@ Populate Project Content
             p.className = 'project-about';
             p.innerHTML = content;
             return p;
-        }
-        
-
-        
-        /* Create Project Features List */
-        function createFeatures(projectName){
-            var featuresList = objProjects[projectName].features;                  
-            var ul = document.createElement('ul');
-            ul.className = 'project-features-list';
-            
-            for(var i=0; i<featuresList.length; i++){
-                let li = document.createElement('li');
-                li. innerHTML = featuresList[i];
-                ul.appendChild(li);
-            }
-           
-            return ul;
-        }
-        
-        /* Create Project URL link */
-        function createProjectUrl(url){
-            var link = document.createElement('a');
-            link.setAttribute('href',url);
-            link.setAttribute('target','_blank'); //Open the url in new window
-            link.innerHTML = 'See the Project in Action';
-            for(var i=0; i<divClass.length; i++){
-                div.classList.add(divClass[i]);
-            }
-            return link;
-        }
+        }      
         
          /* Create Project URL link */
         function createLinkButton(url, text){
