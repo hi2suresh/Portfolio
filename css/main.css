@@ -85,30 +85,7 @@ About CSS settngs
 /*    max-width: 500px;*/
 }
 
-.note{
-/*
-font-family: cursive;
-font-style: italic;
-*/
- overflow: hidden; /* Ensures the content is not revealed until the animation */
-white-space: nowrap;
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em; /* Adjust as needed */
-  -webkit-animation:  typing 8s steps(50, end)
-/*    blink-caret .1s step-end;*/
-}
 
-/* The typing effect */
-@keyframes typing {
- 0%{width: 0;}
-  100%{ width: 100%; } 
-}
-
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: orange; }
-}
 
 #gallery > div {
   display: -webkit-box;
@@ -214,10 +191,10 @@ CSS for Flip Card Effect
 
 #close {
     position: fixed;
-    top: 40px;
-    right: 30px;
-    color: crimson;
-    font-size: 1.5em;
+    top: 1%;
+    right: 3%;
+    color: indianred;
+    font-size: 1.3em;
 }
 
 #project-main-heading{
@@ -370,7 +347,8 @@ CSS for Flip Card Effect
 }
 
 .skills-list > li:before {
-  content: '\2B9E\00a0';  
+/*  content: '\2B9E\00a0';  */
+    content: '\00bb\00a0';
 }
 
 
@@ -578,7 +556,30 @@ footer {
     width: 400px;
     height: 100%;
 }
-    
+  .note{
+
+ overflow: hidden; /* Ensures the content is not revealed until the animation */
+white-space: nowrap;
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  -webkit-animation:  typing 8s steps(50, end) infinite;
+  -moz-animation:  typing 8s steps(50, end) infinite;
+  -o-animation:  typing 8s steps(50, end) infinite;
+    animation: typing 8s steps(50, end) infinite;
+/*    blink-caret .1s step-end;*/
+}
+
+/* The typing effect */
+@keyframes typing {
+ 0%{width: 0;}
+  100%{ width: 100%; } 
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}  
 
     
 #gallery > div {
@@ -600,6 +601,12 @@ footer {
     padding: 12px;
     border: 12px solid #DE7A72;  
     }
+    
+    #close {
+    top: 1%;
+    right: 5%; 
+    font-size: 1.5em;
+}
     
      #gallery > div {
          justify-content: space-between;
@@ -651,6 +658,10 @@ footer {
         border: 16px solid #DE7A72;
     }    
    
+     #close {
+    top: 1%;
+    right: 14.5%;  
+}
     
     #project-main-heading{
         margin-bottom: 20px;

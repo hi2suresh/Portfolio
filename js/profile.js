@@ -179,7 +179,7 @@ Populate Project Content
             
             //Create Project Live URL Button
             var projectUrlDiv =  createDiv(['project-url-div']);
-            projectUrlDiv.appendChild(createLinkButton(objProjects[projectName].url, "Project Live URL"));
+            projectUrlDiv.appendChild(createLinkButton(objProjects[projectName].url, "Go Live"));
             projectDetailsDiv.appendChild(projectUrlDiv);
             
             //Create and Append Project Flip Card Button
@@ -276,7 +276,7 @@ Populate Project Content
             link.classList.add('button');
             link.setAttribute('href',url);
             //Add a target attribute Project Live URL button 
-            if(text.includes('Proj')){
+            if(text.includes('Go')){
                  link.setAttribute('target','_blank'); //Open the url in new window
             }           
             link.innerHTML = text;           
@@ -305,5 +305,5 @@ Populate Project Content
             } else {
                 window.clearInterval( scrollToTop );
             }
-            }, 16);
+            }, 2);
         }
